@@ -6,6 +6,10 @@
     transform: perspective(1000px) rotateY(10deg) rotateX(0deg);
 
 }
+
+.t3d{
+    transform: perspective(1000px) rotateY(10deg) rotateX(0deg);
+}
 .btn-more{
     position: relative !important;
     z-index: 10 !important;
@@ -39,10 +43,4 @@
         transition: 250ms ease-in-out;
        
     }
-}
-.oldClasse{
-    font-size: 16px;
-}
-.newClasse{
-    font-size: 4rem;
 }

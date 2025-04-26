@@ -3,8 +3,6 @@ import { AfterViewInit, Component, ElementRef, HostListener, Inject, NgZone, OnI
 import { NgOptimizedImage } from '@angular/common'
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import TextPlugin from 'gsap/TextPlugin';
-
 gsap.registerPlugin(ScrollTrigger)
 
 @Component({
@@ -25,7 +23,9 @@ export class AppComponent implements AfterViewInit , OnInit{
   }
   nom: String = "sports-car ";
   color: String = "#00e3b8";
-  @ViewChild('texte') texte!: ElementRef;
+  @ViewChild('wel') wel!: ElementRef;
+  @ViewChild('svg') svg!: ElementRef;
+  @ViewChild('ref') ref!: ElementRef;
 
   imageUrl = [
     {nom:"sports-car", color:"#00e3b8"},
@@ -68,7 +68,45 @@ export class AppComponent implements AfterViewInit , OnInit{
   }
   ngAfterViewInit(): void {
       if(isPlatformBrowser(this.platformId)){
+        const tl = gsap.timeline()
+        gsap.to(this.svg.nativeElement,{
+          duration:1,
+          rotate:360,
+          scrollTrigger:{
+            trigger:".hiddenWell",
+            start:"top 40%",
+            end:"top center",
+            scrub:1,
+          }
+        })
+        tl.to(this.wel.nativeElement,{
+          duration:3,
+          scale:5,
+          width:"100%",
+          height:"100%",
+          rotate:-30,
+          y:200,
+          opacity:0,
+          scrollTrigger:{
+            trigger:".hiddenWell1",
+            start:"top 50%",
+            end:"top 0%",
+            scrub:1,
+          }
+        })
+        gsap.to(this.ref.nativeElement,{
+          duration:1,
+          opacity:1,
+          scale:1,
+          scrollTrigger:{
+            trigger:'.img-item',
+            start: "top 30%",
+            end: "top 40%",
+            scrub:1 ,
+          }
+        })
         this.lunchAnim();
+
       }
   }
 }
