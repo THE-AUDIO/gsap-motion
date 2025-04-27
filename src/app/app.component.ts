@@ -28,7 +28,8 @@ export class AppComponent implements AfterViewInit , OnInit{
   @ViewChild('svg') svg!: ElementRef;
   @ViewChild('ref') ref!: ElementRef;
   @ViewChild('hello') helloRef!: ElementRef;
-
+  @ViewChild('theo') theo!: ElementRef;
+  line = Array(34)
   imageUrl = [
     {nom:"sports-car", color:"#00e3b8"},
     {nom:"speaker", color:"#f5fafd"},
@@ -67,10 +68,6 @@ export class AppComponent implements AfterViewInit , OnInit{
 
     })
   }
-  teste(){
-    console.log(true);
-    
-  }
   ngAfterViewInit(): void {
       if(isPlatformBrowser(this.platformId)){
         const tl = gsap.timeline()
@@ -102,6 +99,7 @@ export class AppComponent implements AfterViewInit , OnInit{
           duration:1,
           opacity:1,
           scale:1,
+          rotate:"10deg",
           scrollTrigger:{
             trigger:'.img-item',
             start: "top 30%",
@@ -123,6 +121,21 @@ export class AppComponent implements AfterViewInit , OnInit{
             start:"top 100%",
             end:"top 70%",
             scrub:1
+          }
+        })
+        const lettres = this.theo.nativeElement.querySelectorAll('span');
+        gsap.set(lettres, {opacity: 0, y:25 });
+        gsap.timeline().to(lettres, {
+          y:0,
+          opacity:1,
+          stagger: 0.5,
+          duration: 5,
+          ease: "back",
+          scrollTrigger:{
+            trigger:'.hiddenRef1',
+            start:"top 50%",
+            end:"top 30%",
+            scrub:1,
           }
         })
         this.lunchAnim();

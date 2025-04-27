@@ -126,7 +126,7 @@
          #container
           class="image image{{$index}} h-[70%] w-2/3 rounded-sm overflow-hidden shadow-sm shadow-over flex justify-start items-start relative">
           <img ngSrc="assets/image/{{item.nom}}.jpeg" priority alt="{{item.nom}}" fill />
-          <button (click)="teste()" class="btn-more w-[150px] h-10">
+          <button class="btn-more w-[150px] h-10">
             <span class="txt w-full h-full flex justify-center items-center top-0 left-0">MORE</span>
             <span class="abs"></span>
           </button>
@@ -134,10 +134,52 @@
       </div>
       }
     </section>
-    <div class="relative z-40 flex justify-center items-center bg-primary">
-      <span class="text-[3rem] text-white underline cursor-pointer hover:text-secondary trans">click for more</span>
-    </div>
-    <section class="hiddenRef1 h-screen w-full bg-primary z-50 relative">
-
+    
+    <section class="hiddenRef1 h-screen w-full bg-primary z-50 relative flex justify-between items-center flex-col p-8">
+      <div class="w-5/6 flex justify-start items-center flex-col h-max">
+         <ul class="w-full flex justify-between items-center">
+          <li class="w-1/4 flex justify-start items-center text-over/85 underline">
+              <a href="#">Instagram/</a>
+              <a href="#" class="ml-2">LinkedIn</a>
+              <a href="#" class="ml-2">/Pinterest</a>
+          </li>
+          <li class="w-1/4 flex justify-end items-center text-over/85">
+             <a href="#" class="underline">Ressource Brand</a>
+          </li>
+         </ul>
+         <div class="w-full flex justify-start items-center flex-col">
+          <h2 #theo class="contact text-[14rem] relative flex justify-start items-center w-full">
+              <span>N</span>
+              <span>A</span>
+              <span>N</span>
+              <span>D</span>
+              <span>R</span>
+              <span>A</span>
+              <span>I</span>
+              <span>N</span>
+              <span>A</span>
+              <span class="ml-4">T</span>
+              <span>H</span>
+              <span>E</span>
+              <span class="ml-4">A</span>
+              <span>U</span>
+              <span>D</span>
+              <span>I</span>
+              <span>O</span>
+              
+          </h2>
+        </div>
+      </div>
+     
+      <div class="h-2/3 flex justify-around items-center flex-col w-5/6">
+        <div class="w-full h-max flex justify-between items-start underline text-over/85">
+          <p>Lorem ipsum dolor sit amet.</p>
+          <p>©the audio nandraina all right reserved</p>
+        </div>
+        @for (item of line; track $index) {
+          <span class="w-full h-[.5px] bg-black"></span>
+        }
+      
+      </div>
     </section>
   </div>
