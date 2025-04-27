@@ -29,14 +29,15 @@ export class AppComponent implements AfterViewInit , OnInit{
   @ViewChild('ref') ref!: ElementRef;
   @ViewChild('hello') helloRef!: ElementRef;
   @ViewChild('theo') theo!: ElementRef;
+  @ViewChild('lineC') lineC!: ElementRef;
   line = Array(34)
   imageUrl = [
-    {nom:"sports-car", color:"#00e3b8"},
+    {nom:"Car", color:"#00e3b8"},
     {nom:"speaker", color:"#f5fafd"},
-    {nom:"Red-sunset", color:"#00e3b8"},
-    {nom:"sports-car", color:"#f5fafd"},
+    {nom:"Sunset", color:"#00e3b8"},
+    {nom:"Car", color:"#f5fafd"},
     {nom:"speaker", color:"#00e3b8"},
-    {nom:"Red-sunset", color:"#f5fafd"}
+    {nom:"Sunset", color:"#f5fafd"}
   ]
   
   ToogleMenu(){
@@ -135,6 +136,23 @@ export class AppComponent implements AfterViewInit , OnInit{
             trigger:'.hiddenRef1',
             start:"top 50%",
             end:"top 30%",
+            scrub:1,
+          }
+        })
+        const lines = this.lineC.nativeElement.querySelectorAll('span')
+        console.log(spans);
+        
+        gsap.set(lines, {opacity:0 , y:10})
+        gsap.timeline().to(lines, {
+          y:0,
+          opacity:1,
+          stagger: 0.5,
+          duration: 5,
+          ease: "back",
+          scrollTrigger:{
+            trigger:'.hiddenRef1',
+            start:"top 30%",
+            end:"top 10%",
             scrub:1,
           }
         })

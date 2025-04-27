@@ -46,7 +46,7 @@
                 <li class="w-full xl:w-1/3 flex justify-start xl:justify-center items-center h-1/3 xl:h-max">
                   <button
                     class="w-2/3 text-primary z-10 relative overflow-hidden bg-over flex justify-center items-cente0">
-                    <span class="relative z-10">ABOUT ME</span>
+                    <span class="relative z-10">CONTACT</span>
                   </button>
                 </li>
                 <li class="w-full xl:w-1/2 flex justify-start xl:justify-center items-center h-1/3 xl:h-max">
@@ -113,13 +113,13 @@
 
     <div #ref class="more fixed top-1/3 left-10  h-1/2 w-1/4 rounded-full z-50 opacity-0 scale-0">
       <div class="text flex justify-around items-center flex-col">
-        <span class="text-[4rem] xl:text-[6rem]">WEBSITE</span>
         <span class="text-[4rem] xl:text-[6rem]" [style.color]="color" #texte>{{this.nom}}</span>
+        <span class="text-[4rem] xl:text-[6rem]">exemple</span>
         <button class="btn w-1/2 bg-yellow-600 h-max text-[2rem] xl:text-[4rem] text-primary">OPPEN</button>
       </div>
     </div>
   
-    <section class="img-item w-full h-max bg-primary flex justify-center items-center flex-col z-40 relative">
+    <section class="img-item w-full h-max bg-primary flex justify-center items-center flex-col z-40 relative overflow-x-hidden">
       @for (item of imageUrl; track $index) {
       <div class="container-elt w-full h-screen relative flex justify-end items-center">
         <div
@@ -135,9 +135,9 @@
       }
     </section>
     
-    <section class="hiddenRef1 h-screen w-full bg-primary z-50 relative flex justify-between items-center flex-col p-8">
-      <div class="w-5/6 flex justify-start items-center flex-col h-max">
-         <ul class="w-full flex justify-between items-center">
+    <section class="hiddenRef1 h-screen w-full bg-primary z-50 relative flex justify-between items-center flex-col overflow-hidden">
+      <div class="w-5/6 flex justify-start items-center flex-col h-max p-4">
+         <ul class="w-full flex justify-between items-center pt-8">
           <li class="w-1/4 flex justify-start items-center text-over/85 underline">
               <a href="#">Instagram/</a>
               <a href="#" class="ml-2">LinkedIn</a>
@@ -148,16 +148,16 @@
           </li>
          </ul>
          <div class="w-full flex justify-start items-center flex-col">
-          <h2 #theo class="contact text-[14rem] relative flex justify-start items-center w-full">
-              <span>N</span>
-              <span>A</span>
-              <span>N</span>
-              <span>D</span>
-              <span>R</span>
-              <span>A</span>
-              <span>I</span>
-              <span>N</span>
-              <span>A</span>
+          <h2 #theo class="contact text-[10rem] xl:text-[14rem] relative flex justify-start items-center w-full text-secondary/60">
+              <span class="hidden xl:flex">N</span>
+              <span class="hidden xl:flex">A</span>
+              <span class="hidden xl:flex">N</span>
+              <span class="hidden xl:flex">D</span>
+              <span class="hidden xl:flex">R</span>
+              <span class="hidden xl:flex">A</span>
+              <span class="hidden xl:flex">I</span>
+              <span class="hidden xl:flex">N</span>
+              <span class="hidden xl:flex">A</span>
               <span class="ml-4">T</span>
               <span>H</span>
               <span>E</span>
@@ -171,14 +171,16 @@
         </div>
       </div>
      
-      <div class="h-2/3 flex justify-around items-center flex-col w-5/6">
+      <div class="h-2/3 flex justify-around items-center flex-col w-5/6 p-4">
         <div class="w-full h-max flex justify-between items-start underline text-over/85">
           <p>Lorem ipsum dolor sit amet.</p>
           <p>©the audio nandraina all right reserved</p>
         </div>
-        @for (item of line; track $index) {
-          <span class="w-full h-[.5px] bg-black"></span>
-        }
+        <div #lineC class="w-full h-5/6 flex justify-around items-center flex-col">
+          @for (item of line; track $index) {
+            <span class="w-full h-[.5px] bg-secondary/60"></span>
+          }
+        </div>
       
       </div>
     </section>
