@@ -6,9 +6,23 @@
     transform: perspective(1000px) rotateY(10deg) rotateX(0deg);
 
 }
+.trans{
+    transition: 500ms ease-in-out;
+}
 
 .t3d{
     transform: perspective(1000px) rotateY(10deg) rotateX(0deg);
+}
+.anim{
+    animation: t3d 2s infinite ease-in-out alternate;
+    @keyframes t3d {
+        0%{
+            transform: perspective(1000px) rotateY(20deg) rotateX(0deg);
+        }
+        100%{
+        transform: perspective(1000px) rotateY(0deg) rotateX(0);
+        }
+    }
 }
 .btn-more{
     position: relative !important;
@@ -43,4 +57,7 @@
         transition: 250ms ease-in-out;
        
     }
+}
+#hello span{
+    text-shadow: 4px 4px 0px #000000
 }

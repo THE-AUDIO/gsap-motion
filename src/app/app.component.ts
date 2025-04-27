@@ -1,4 +1,4 @@
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, HostListener, Inject, NgZone, OnInit, PLATFORM_ID, QueryList, Renderer2, viewChild, ViewChild, ViewChildren } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common'
 import { gsap } from "gsap";
@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -23,9 +23,11 @@ export class AppComponent implements AfterViewInit , OnInit{
   }
   nom: String = "sports-car ";
   color: String = "#00e3b8";
+  menuState: Boolean = false;
   @ViewChild('wel') wel!: ElementRef;
   @ViewChild('svg') svg!: ElementRef;
   @ViewChild('ref') ref!: ElementRef;
+  @ViewChild('hello') helloRef!: ElementRef;
 
   imageUrl = [
     {nom:"sports-car", color:"#00e3b8"},
@@ -36,6 +38,9 @@ export class AppComponent implements AfterViewInit , OnInit{
     {nom:"Red-sunset", color:"#f5fafd"}
   ]
   
+  ToogleMenu(){
+      this.menuState =!this.menuState
+  }
   cardAnim(classe: string, title:string, color:string){
     gsap.to(classe,{
       duration:.25,
@@ -79,13 +84,12 @@ export class AppComponent implements AfterViewInit , OnInit{
             scrub:1,
           }
         })
-        tl.to(this.wel.nativeElement,{
+        gsap.to(this.wel.nativeElement,{
           duration:3,
           scale:5,
           width:"100%",
           height:"100%",
           rotate:-30,
-          y:200,
           opacity:0,
           scrollTrigger:{
             trigger:".hiddenWell1",
@@ -103,6 +107,21 @@ export class AppComponent implements AfterViewInit , OnInit{
             start: "top 30%",
             end: "top 40%",
             scrub:1 ,
+          }
+        })
+        const spans = this.helloRef.nativeElement.querySelectorAll('span');
+        gsap.set(spans, { y: -100, opacity: 0.8 });
+        gsap.timeline().to(spans, {
+          y:100,
+          opacity:1,
+          stagger: 0.5,
+          duration: 5,
+          ease: "back",
+          scrollTrigger:{
+            trigger:'.anim-hello',
+            start:"top 100%",
+            end:"top 70%",
+            scrub:1
           }
         })
         this.lunchAnim();
