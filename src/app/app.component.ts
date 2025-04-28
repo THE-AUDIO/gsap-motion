@@ -1,5 +1,5 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, HostListener, Inject, NgZone, OnInit, PLATFORM_ID, QueryList, Renderer2, viewChild, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common'
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -24,6 +24,7 @@ export class AppComponent implements AfterViewInit , OnInit{
   nom: String = "sports-car ";
   color: String = "#00e3b8";
   menuState: Boolean = false;
+  refState: Boolean = false;
   @ViewChild('wel') wel!: ElementRef;
   @ViewChild('svg') svg!: ElementRef;
   @ViewChild('ref') ref!: ElementRef;
@@ -32,12 +33,12 @@ export class AppComponent implements AfterViewInit , OnInit{
   @ViewChild('lineC') lineC!: ElementRef;
   line = Array(34)
   imageUrl = [
-    {nom:"Car", color:"#00e3b8"},
+    {nom:"car", color:"#00e3b8"},
     {nom:"speaker", color:"#f5fafd"},
-    {nom:"Sunset", color:"#00e3b8"},
-    {nom:"Car", color:"#f5fafd"},
-    {nom:"speaker", color:"#00e3b8"},
-    {nom:"Sunset", color:"#f5fafd"}
+    {nom:"sunset", color:"#00e3b8"},
+    {nom:"office", color:"#f5fafd"},
+    {nom:"workspace", color:"#00e3b8"},
+    {nom:"design", color:"#f5fafd"}
   ]
   
   ToogleMenu(){
@@ -69,6 +70,7 @@ export class AppComponent implements AfterViewInit , OnInit{
 
     })
   }
+
   ngAfterViewInit(): void {
       if(isPlatformBrowser(this.platformId)){
         const tl = gsap.timeline()
@@ -140,7 +142,6 @@ export class AppComponent implements AfterViewInit , OnInit{
           }
         })
         const lines = this.lineC.nativeElement.querySelectorAll('span')
-        console.log(spans);
         
         gsap.set(lines, {opacity:0 , y:10})
         gsap.timeline().to(lines, {

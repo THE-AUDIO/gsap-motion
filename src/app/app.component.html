@@ -67,6 +67,10 @@
       </ul>
     </nav>
     <section #wel  class="h-screen w-full bg-primary z-40 flex justify-center items-center flex-col fixed top-0">
+      <!-- <h2 class=" text-[4rem] absolute top-1/2 right-5 bg-over/85 text-primary p-2 rotate-45">WEBSITE</h2>
+      <h2 class=" text-[4rem] absolute top-1/2 right-40 bg-over/85 text-primary p-2 rotate-45">GRAPHISTE</h2>
+      <h2 class=" text-[4rem] absolute top-1/2 right-[20rem] bg-over/85 text-primary p-2 rotate-45">WEB DESIGN</h2>
+      <h2 class=" text-[4rem] absolute top-1/2 left-5 bg-over/85 text-primary p-2">M'DEV2KELLY CREATE</h2> -->
       <div class="anim t3d h-[400px] w-[600px] bg-over/60 flex justify-center items-center rounded-lg">
           <span class="w-5/6 h-5/6 bg-primary flex justify-center items-center rounded-lg">
             <span class="w-5/6 h-5/6 bg-over/60 flex justify-center items-center rounded-lg">
@@ -84,7 +88,7 @@
       </div>
       <div class="wel1 flex justify-center items-center w-full h-[200px] absolute bottom-0">
         <button class="t3d w-full h-[8vh] relative flex justify-center items-center">
-          <span class=" text-[4rem] w-1/4 h-full flex justify-center items-center top-0 left-0 !bg-secondary">SCROLL!!</span>
+          <span class=" text-[4rem] w-1/4 h-full flex justify-center items-center top-0 left-0 !bg-secondary/60">SCROLL!!</span>
         </button>
       </div>
     </section>
@@ -111,7 +115,7 @@
    </section>
 
 
-    <div #ref class="more fixed top-1/3 left-10  h-1/2 w-1/4 rounded-full z-50 opacity-0 scale-0">
+    <div #ref class="more fixed top-1/3 left-10  h-1/2 w-1/4 rounded-full z-50 opacity-0 scale-0" *ngIf="!this.refState">
       <div class="text flex justify-around items-center flex-col">
         <span class="text-[4rem] xl:text-[6rem]" [style.color]="color" #texte>{{this.nom}}</span>
         <span class="text-[4rem] xl:text-[6rem]">exemple</span>
@@ -125,7 +129,7 @@
         <div
          #container
           class="image image{{$index}} h-[70%] w-2/3 rounded-sm overflow-hidden shadow-sm shadow-over flex justify-start items-start relative">
-          <img ngSrc="assets/image/{{item.nom}}.jpeg" priority alt="{{item.nom}}" fill />
+          <img ngSrc="assets/image/{{item.nom}}.jpeg" loading="lazy" alt="{{item.nom}}" fill />
           <button class="btn-more w-[150px] h-10">
             <span class="txt w-full h-full flex justify-center items-center top-0 left-0">MORE</span>
             <span class="abs"></span>
