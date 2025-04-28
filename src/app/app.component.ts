@@ -31,6 +31,7 @@ export class AppComponent implements AfterViewInit , OnInit{
   @ViewChild('hello') helloRef!: ElementRef;
   @ViewChild('theo') theo!: ElementRef;
   @ViewChild('lineC') lineC!: ElementRef;
+  @ViewChild('service') service!: ElementRef;
   line = Array(34)
   imageUrl = [
     {nom:"car", color:"#00e3b8"},
@@ -126,6 +127,7 @@ export class AppComponent implements AfterViewInit , OnInit{
             scrub:1
           }
         })
+
         const lettres = this.theo.nativeElement.querySelectorAll('span');
         gsap.set(lettres, {opacity: 0, y:25 });
         gsap.timeline().to(lettres, {
@@ -141,8 +143,8 @@ export class AppComponent implements AfterViewInit , OnInit{
             scrub:1,
           }
         })
-        const lines = this.lineC.nativeElement.querySelectorAll('span')
-        
+
+        const lines = this.lineC.nativeElement.querySelectorAll('span');
         gsap.set(lines, {opacity:0 , y:10})
         gsap.timeline().to(lines, {
           y:0,
@@ -157,6 +159,22 @@ export class AppComponent implements AfterViewInit , OnInit{
             scrub:1,
           }
         })
+
+        const services = this.service.nativeElement.querySelectorAll('.service');
+        gsap.set(services, {opacity:0 , y:10})
+        gsap.timeline().to(services, {
+          opacity:1,
+          y:0,
+          stagger:1.5,
+          duration:2,
+          scrollTrigger:{
+            trigger:".hiddenWell",
+            start:"top 40%",
+            end:"top center",
+            scrub:1,
+          }
+        })
+
         this.lunchAnim();
 
       }
