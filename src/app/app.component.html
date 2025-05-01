@@ -45,7 +45,7 @@
               <ul class="w-full h-full flex justify-around items-center flex-col-reverse xl:flex-row">
                 <li class="w-full xl:w-1/3 flex justify-start xl:justify-center items-center h-1/3 xl:h-max">
                   <button
-                    class="w-2/3 text-primary z-10 relative overflow-hidden bg-over flex justify-center items-cente p-1">
+                    class="w-2/3 text-primary z-10 relative overflow-hidden bg-over flex justify-center items-cente p-1 border-2 border-black rounded-xl">
                     <span class="relative z-10">CONTACT</span>
                   </button>
                 </li>
@@ -121,11 +121,11 @@
    </section>
 
 
-    <div #ref class="more fixed top-1/3 left-10  h-1/2 w-1/4 rounded-full z-50 opacity-0 scale-0" *ngIf="!this.refState">
+    <div #ref class="more fixed top-1/3 left-16 xl:left-10  h-1/2 w-1/4 rounded-full z-50 opacity-0 scale-0" *ngIf="!this.refState">
       <div class="text flex justify-around items-center flex-col">
         <span class="text-[4rem] xl:text-[6rem]" [style.color]="color" #texte>{{this.nom}}</span>
         <span class="text-[4rem] xl:text-[6rem]">exemple</span>
-        <button class="btn w-1/2 bg-yellow-600 h-max text-[2rem] xl:text-[4rem] text-primary">OPPEN</button>
+        <button class="btn w-5/6 md:w-1/2 bg-yellow-600 h-max text-[2rem] xl:text-[4rem] text-primary">OPPEN</button>
       </div>
     </div>
   
@@ -145,20 +145,20 @@
       }
     </section>
     
-    <section class="hiddenRef1 h-screen w-full bg-primary z-50 relative flex justify-between items-center flex-col overflow-hidden">
-      <div class="w-5/6 flex justify-start items-center flex-col h-max p-4">
-         <ul class="w-full flex justify-between items-center pt-8">
+    <section class="hiddenRef1 h-screen w-full bg-primary z-50 relative flex justify-center xl:justify-between items-center flex-col overflow-hidden">
+      <div class="w-full xl:w-5/6 flex justify-center xl:justify-start items-center flex-col h-max p-4">
+         <ul class="w-full flex justify-between items-center pt-8 text-sm xl:text-lg">
           <li class="w-1/4 flex justify-start items-center text-over/85 underline">
-              <a href="#">Instagram/</a>
+              <a href="#">gitHub/</a>
               <a href="#" class="ml-2">LinkedIn</a>
-              <a href="#" class="ml-2">/Pinterest</a>
+              <a href="#" class="ml-2">/Twiter</a>
           </li>
           <li class="w-1/4 flex justify-end items-center text-over/85">
              <a href="#" class="underline">Ressource Brand</a>
           </li>
          </ul>
          <div class="w-full flex justify-start items-center flex-col">
-          <h2 #theo class="line relative flex justify-center items-center w-full text-secondary/60 [font-size:clamp(10rem,10vw,14rem)] border-secondary">
+          <h2 #theo class="line relative flex justify-center items-center w-full text-secondary/60 [font-size:clamp(8rem,10vw,14rem)] border-secondary">
             <span class="hidden xl:flex">N</span>
             <span class="hidden xl:flex">A</span>
             <span class="hidden xl:flex">N</span>
@@ -181,8 +181,8 @@
         </div>
       </div>
      
-      <div class="h-2/3 flex justify-around items-center flex-col w-5/6 p-4">
-        <div class="w-full h-max flex justify-between items-start underline text-over/85">
+      <div class="h-2/3 flex justify-around items-center flex-col w-full xl:w-5/6 p-4">
+        <div class="w-full h-max flex justify-between items-start underline text-over/85 text-sm xl:text-lg">
           <p>Lorem ipsum dolor sit amet.</p>
           <p>©the audio nandraina all right reserved</p>
         </div>

@@ -113,9 +113,9 @@ export class AppComponent implements AfterViewInit , OnInit{
         })
 
         const spans = this.helloRef.nativeElement.querySelectorAll('span');
-        gsap.set(spans, { y: -100, opacity: 0.8 });
+        gsap.set(spans, { y: "-35%", opacity: 0.8 });
         gsap.timeline().to(spans, {
-          y:100,
+          y:"35%",
           opacity:1,
           stagger: 0.5,
           duration: 5,
